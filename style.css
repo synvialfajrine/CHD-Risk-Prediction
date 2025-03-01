@@ -1,0 +1,35 @@
+/* Make background light */
+body {
+    background-color: #f5f5f5;
+}
+
+/* Style title */
+h1 {
+    color: #1a1a1a;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Style input fields */
+div.stTextInput, div.stNumberInput, div.stSelectbox, div.stRadio {
+    background-color: #ffffff !important;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style submit button */
+div.stButton > button {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+div.stButton > button:hover {
+    background-color: #0056b3 !important;
+}
