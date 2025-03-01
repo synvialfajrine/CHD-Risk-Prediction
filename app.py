@@ -8,7 +8,7 @@ st.set_page_config(page_title="CHD Risk Prediction")
 
 # Define project path and model file
 project_path = "C:\\Users\\USER\\Documents\\cardiovascular-heart-risk"
-model_file_path = os.path.join(project_path, "svm_model.pkl")
+model_file_path = ("svm_model.pkl")
 
 # Load the trained model with caching
 @st.cache_resource
@@ -31,6 +31,8 @@ def predict_risk(features):
         return None  # Handle missing model case
     prediction = model.predict([features])  # Ensure it's a 2D array
     return prediction[0]
+
+
 
 def get_recommendations(risk):
     if risk == 1:
