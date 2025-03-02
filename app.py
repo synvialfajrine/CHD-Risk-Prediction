@@ -1,14 +1,13 @@
 import streamlit as st
 import pickle
 import numpy as np
-import os
 
 # Set the page title
 st.set_page_config(page_title="CHD Risk Prediction")
 
 # Define project path and model file
 project_path = "C:\\Users\\USER\\Documents\\cardiovascular-heart-risk"
-model_file_path = ("svm_model.pkl")
+model_file_path = ("xgb_model.pkl")
 
 # Load the trained model with caching
 @st.cache_resource
@@ -29,8 +28,10 @@ model = load_model()
 def predict_risk(features):
     if model is None:
         return None  # Handle missing model case
-    prediction = model.predict([features])  # Ensure it's a 2D array
-    return prediction[0]
+    probability = model.predict_proba([features])[:, 1]  # Get probability of the positive class
+    prediction = 1 if probability >= 0.35 else 0  # Apply threshold
+    return prediction
+
 
 
 
